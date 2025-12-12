@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amit Kannur | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+        /* ===== GLOBAL VARIABLES ===== */
+        
+         :root {
+            --primary: #6366f1;
+            /* Indigo */
+            --secondary: #a855f7;
+            /* Purple */
+            --dark: #1e293b;
+            /* Dark Slate */
+            --light: #f8fafc;
+            /* White-ish */
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.5);
+            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+        }
+        /* ===== RESET & BODY ===== */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+            color: var(--dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        /* ===== NAVIGATION ===== */
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        /* ===== HEADER / HERO ===== */
+        
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .hero-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border: 4px solid white;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            background: -webkit-linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        p.subtitle {
+            font-size: 1.2rem;
+            color: #475569;
+            max-width: 600px;
+        }
+        
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+            transition: 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            background: var(--secondary);
+            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4);
+        }
+        /* ===== SECTIONS ===== */
+        
+        section {
+            padding: 100px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+        
+        .glass-box {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: var(--glass-border);
+            padding: 50px;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            margin-bottom: 50px;
+        }
+        /* ===== GRID LAYOUTS ===== */
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            background: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card h3 {
+            color: var(--dark);
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .card-meta {
+            font-size: 0.9rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+        
+        .card-date {
+            font-size: 0.85rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        /* Icon styling inside cards */
+        
+        .card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        /* ===== FOOTER ===== */
+        
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: var(--dark);
+            color: white;
+            margin-top: 50px;
+        }
+        
+        .social-icons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            transition: 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--secondary);
+            transform: scale(1.1);
+        }
+        /* ===== RESPONSIVE ===== */
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            nav {
+                padding: 15px 20px;
+            }
+            .nav-links {
+                display: none;
+            }
+            /* Simple hide for mobile, normally you'd add a hamburger menu */
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="#" class="logo">Amit.</a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header>
+        <img src="C:\Users\kannu\OneDrive\Documents\V.S.Code.Programm\resume.amit\img1.jpg.png" class="hero-img" alt="Amit Kannur" />
+        <h1>Amit Kannur</h1>
+        <p class="subtitle">Computer Science Engineering Student | Mini-Project Developer | Tech Enthusiast</p>
+        <a href="#projects" class="btn">View My Work</a>
+
+        <div class="social-icons" style="margin-top: 30px;">
+            <a href="https://github.com/AmitKannur" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:kannuramit18@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="tel:+918105774014"><i class="fas fa-phone"></i></a>
+        </div>
+    </header>
+
+    <section id="about" class="glass-box">
+        <h2>About Me</h2>
+        <p>I am a dedicated and motivated individual with a strong interest in learning, creativity, and problem-solving. I enjoy taking on new challenges, building meaningful skills, and contributing to impactful projects. I work well independently and
+            as part of a team, and I continuously seek growth and innovation.</p>
+        <br>
+        <p><strong>Education:</strong> B.E. in Computer Science (3rd Year) at BLDEACET, Vijayapur.</p>
+    </section>
+
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-code"></i>
+                <h3>C / C++</h3>
+                <p>Logic Building & Algorithms</p>
+            </div>
+            <div class="card">
+                <i class="fab fa-html5"></i>
+                <h3>HTML & CSS</h3>
+                <p>Web Structure & Design</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-robot"></i>
+                <h3>Generative AI</h3>
+                <p>Prompt Engineering & Tools</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-search"></i>
+                <h3>Research</h3>
+                <p>Internet & Data Analysis</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-brain"></i>
+                <h3>Problem Solving</h3>
+                <p>Critical Thinking</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-users"></i>
+                <h3>Teamwork</h3>
+                <p>Collaboration & Leadership</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="glass-box">
+        <h2>Certifications</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Generative AI Unleashing</h3>
+                <div class="card-meta">Infosys Springboard</div>
+                <div class="card-date">Nov 22, 2025</div>
+            </div>
+            <div class="card">
+                <h3>Artificial Intelligence</h3>
+                <div class="card-meta">Infosys Springboard</div>
+                <div class="card-date">Nov 21, 2025</div>
+            </div>
+            <div class="card">
+                <h3>Intro to Artificial Intelligence</h3>
+                <div class="card-meta">Infosys Springboard</div>
+                <div class="card-date">Nov 21, 2025</div>
+            </div>
+            <div class="card">
+                <h3>Intro to NLP</h3>
+                <div class="card-meta">Infosys Springboard</div>
+                <div class="card-date">Nov 19, 2025</div>
+            </div>
+            <div class="card">
+                <h3>Intro to Data Science</h3>
+                <div class="card-meta">Infosys Springboard</div>
+                <div class="card-date">Nov 15, 2025</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2>What I Do</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Mini-Project Development</h3>
+                <p>Assistance in building academic mini-projects using programming logic & clean development.</p>
+            </div>
+            <div class="card">
+                <h3>Basic Programming</h3>
+                <p>Projects using C, Python, or Java designed for students and beginners.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="glass-box">
+        <h2>Featured Projects</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>College Online Voting System</h3>
+                <p>Web application development with a focus on Online Voting Systems and Database Security.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <div class="glass-box" style="text-align: center;">
+            <p style="font-size: 1.2rem; margin-bottom: 20px;">Feel free to reach out for collaborations or just a friendly hello!</p>
+            <p><strong>Email:</strong> <a href="mailto:kannuramit18@gmail.com" style="color: var(--primary);">kannuramit18@gmail.com</a></p>
+            <p><strong>Phone:</strong> +91 8105774014</p>
+            <a href="mailto:kannuramit18@gmail.com" class="btn">Send Email</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Amit Kannur. All Rights Reserved.</p>
+        <div class="social-icons">
+            <a href="https://github.com/AmitKannur" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:kannuramit18@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+    </footer>
+
+</body>
+
+</html>
